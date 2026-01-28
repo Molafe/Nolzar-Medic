@@ -5,7 +5,7 @@ const productos = [
         categoria: "Reddyz",
         img: "/imagenes/WhatsApp Image 2025-12-04 at 10.28.37 AM.jpeg",
         descripcion: "Guantes de alta resistencia y calidad hospitalaria.",
-        link: "/producto3.html"
+        link: "producto3.html"
     },
     {
         nombre: "Premier α (NIPRO)",
@@ -175,3 +175,4 @@ window.addEventListener("load", () => {
 });
 
 window.addEventListener("resize", ajustarAltura);
+
