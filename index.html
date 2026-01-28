@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/css/flor1.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/imagenes/lofito.png">
+    <title>Nolzar Medic</title>
+
+</head>
+<body>
+    <header>
+        <div class="conteiner">
+            <a href="index.html">
+            <img src="/imagenes/logo.png" alt="medicine" class="logo"></a>
+        
+        
+        <nav>
+            <ul class="menu">
+                <li ><a href="index.html">INICIO</a></li>
+                <li ><a href="index2.html">PRODUCTOS</a></li>
+                <li class="menu_flecha dropdown"><a href="#">CONTACTO</a>
+                    <ul class="submenu">
+                        <li><a href="https://api.whatsapp.com/send?phone=51990473941&text=Hola%20quiero%20m%C3%A1s%20info%20sobre%20los%20productos%20de%20Nolzar%20Medic" target="_blank">WhatsApp</a></li>
+                        <li><a href="#">Facebook</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">ACERCA DE</a></li>
+            </ul>
+        </nav>
+        </div>
+    </header>
+
+<section class="bienvenida-section" style="height: 100%; display:flex; justify-content:center; align-items:center; background:#c8fff0; margin-top: 20px;">
+    <div class="bienvenida-container">
+        
+        <h1 class="bienvenida-text animate">Bienvenido a Nolzar Medic</h1>
+
+        <div class="bienvenida-info ">
+            <h2>Sobre Nosotros</h2>
+            <p>
+                Ventas y distribución de material médico instrumental quirúrgico, laboratorio y 
+                afines Por mayor y menor.
+            </p>
+        </div>
+
+    </div>
+
+
+
+</section>
+
+<section style="height: 100%; display:grid; justify-content:center; align-items:center; background:#a0e7d2">
+
+    <div class="carousel animate">
+    <div class="carousel-track">
+        <div class="slide"><img src="/imagenes/WhatsApp Image 2025-12-04 at 10.28.37 AM.jpeg" alt="1"></div>
+        <div class="slide"><img src="/imagenes/VITAMINA-B12.jpg" alt="2" style="margin-top: -300px;"></div>
+        <div class="slide"><img src="/imagenes/medidor_primer.jpeg" alt="3"></div>
+        <div class="slide"><img src="/imagenes/Lymphdiaral.jpg" alt="4" style="margin-top: -300px;"></div>
+        <div class="slide"><img src="/imagenes/reforce.webp" alt="5" style="margin-top: -200px;"></div>
+    </div>
+
+    <!-- Botones -->
+    <button class="arrow prev">&#10094;</button>
+    <button class="arrow next">&#10095;</button>
+
+    <!-- Indicadores -->
+    <div class="dots"></div>
+</div>
+
+<a href="/HTML/index2.html" class="btn_verproductos animate">VER PRODUCTOS</a>
+
+
+</section>
+<section style="height: 100vh; display:flex; justify-content:center; align-items:center; background:#78c9b4;">
+    <div class="ACERCA animate" style="padding:40px; background:white; border-radius:20px">
+        <h2 style="color:#0B6834;">Encuéntranos</h2><br>
+
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d410.1432638984992!2d-77.03885710726024!3d-12.046114889546049!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c8cbfaf5f1b5%3A0xc7c1e38ef7ce03bf!2sJr.%20Chancay%20627%2C%20Lima%2015001!5e0!3m2!1ses-419!2spe!4v1764889857637!5m2!1ses-419!2spe" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <div class="ACERCA1 animate" style="padding:40px; background:white; border-radius:20px;">
+        <h2 style="color:#0B6834;">Contáctanos</h2><br>
+
+    <div class="abajo">
+
+    
+    <div class="contenedor-boton">
+      <a href="https://www.facebook.com/" class="boton-imagen" target="_blank">
+        <img src="/imagenes/image-removebg-preview.png" alt="Icono Facebook">
+        Facebook
+      </a>
+
+      <a href="https://api.whatsapp.com/send?phone=51990473941&text=Hola%20quiero%20m%C3%A1s%20info%20sobre%20los%20productos%20de%20Nolzar%20Medic" class="boton-imagen" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" alt="Icono WhatsApp" >
+        WhatsApp 
+      </a>   
+    </div>
+    <p id="abajo" class="copyright">© 2025 "Nolzar Medic". Todos los derechos reservados.</p>
+  </div>
+        </div>
+
+</section>
+
+<script>
+const track = document.querySelector('.carousel-track');
+const slides = Array.from(track.children);
+const nextBtn = document.querySelector('.next');
+const prevBtn = document.querySelector('.prev');
+const dotsContainer = document.querySelector('.dots');
+
+let index = 0;
+const total = slides.length;
+
+// Crear dots
+slides.forEach((_, i) => {
+    const dot = document.createElement('div');
+    if (i === 0) dot.classList.add('active');
+    dotsContainer.appendChild(dot);
+});
+const dots = Array.from(dotsContainer.children);
+
+// Mostrar slide
+function goToSlide(i) {
+    index = (i + total) % total; // circular
+    track.style.transform = `translateX(-${100 * index}%)`;
+    dots.forEach(d => d.classList.remove('active'));
+    dots[index].classList.add('active');
+}
+
+// Botones
+nextBtn.addEventListener('click', () => goToSlide(index + 1));
+prevBtn.addEventListener('click', () => goToSlide(index - 1));
+
+// Dots
+dots.forEach((dot, i) =>
+    dot.addEventListener('click', () => goToSlide(i))
+);
+
+// Auto-slide
+let auto = setInterval(() => goToSlide(index + 1), 4000);
+
+// Pausar cuando el mouse esté encima
+document.querySelector('.carousel').addEventListener('mouseenter', () => {
+    clearInterval(auto);
+});
+document.querySelector('.carousel').addEventListener('mouseleave', () => {
+    auto = setInterval(() => goToSlide(index + 1), 4000);
+});
+</script>
+
+<script>
+    const elements = document.querySelectorAll('.animate');
+
+    function showElements() {
+        elements.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 100) {
+                el.classList.add('visible');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', showElements);
+    showElements(); // Ejecutar al cargar
+</script>
+
+<script>
+let isScrolling = false;
+
+if (window.innerWidth > 768) {
+    window.addEventListener("wheel", function(e) {
+        if (isScrolling) return;
+
+        const sections = Array.from(document.querySelectorAll("section"));
+
+        let current = 0;
+        let minOffset = Infinity;
+
+        sections.forEach((sec, i) => {
+            const offset = Math.abs(sec.getBoundingClientRect().top);
+            if (offset < minOffset) {
+                minOffset = offset;
+                current = i;
+            }
+        });
+
+        isScrolling = true;
+
+        if (e.deltaY > 0 && current < sections.length - 1) {
+            sections[current + 1].scrollIntoView({ behavior: "smooth" });
+        } 
+        else if (e.deltaY < 0 && current > 0) {
+            sections[current - 1].scrollIntoView({ behavior: "smooth" });
+        }
+
+        setTimeout(() => isScrolling = false, 900);
+    });
+}
+</script>
+
+
+
+</body>
+</html>

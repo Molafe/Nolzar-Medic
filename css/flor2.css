@@ -1,0 +1,447 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: 'Poppins', system-ui, Arial, sans-serif;
+    background-color: white;
+    min-height: 100vh;
+    background-repeat: no-repeat; /*img no se repita*/
+    background-size:cover; /*ajustar tamaño de la imagen cover-contain*/
+    background-position: center; /*ajustar la posicion de la img*/
+    background-attachment: fixed;/*img se quede fija mientras se desplaza la pagina*/
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    color: rgba(255, 255, 255, 0.5);
+    box-shadow: 2px 2px 20px #123D5A;
+    padding: 2px 0px;
+}
+
+
+.conteiner {
+    display: flex;
+    justify-content: space-between; /* logo a la izquierda y menú a la derecha */
+    align-items:center;            /* centra verticalmente */
+    padding: 5px 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+    margin-left: 100px;
+}
+
+.logo{
+    width: 300px;
+    height: 90px;
+    margin-left: 6%;
+}
+.menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    display: flex;
+    margin-left: -20%;
+    
+}
+
+.menu li {
+    position:relative;
+    
+}
+
+.menu a{
+    display: block;
+    padding: 10px 25px;
+    text-decoration: none;
+    color: #0B6834;
+    text-align: center;
+    font-weight: 1000;
+    
+}
+
+/* SUBRAYADO */
+.menu a::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background-color: #0B6834;
+    transition: width 0.3s ease;
+}
+
+.menu a:hover::before {
+    width: 100%;
+}
+
+
+.menu li.menu_flecha > a::after {
+    content: "▾";
+    margin-left: 6px;
+    font-size: 12px;
+    color: #0B6834;
+    position: relative;
+    top: -2px; /* ajusta si quieres */
+}
+
+/* ====== SUBMENU ====== */
+.submenu {
+    position: absolute;
+    top: 115%;
+    left: -40px;
+
+    background: #faf6f4;
+    border: 2px solid #0B6834;
+    padding: 15px 25px;
+    display: none;
+    flex-direction: column;
+    width: 230px;
+    z-index: 20;
+
+
+}
+
+/* Mostrar submenu al pasar mouse */
+.dropdown:hover > .submenu {
+    display: flex;
+}
+
+/* Ítems del submenu */
+.submenu li {
+    list-style: none;
+    padding: 12px 0;
+    text-align: center;
+}
+
+.submenu li a {
+    text-decoration: none;
+    color: #0B6834;
+    font-weight: 600;
+}
+
+/* Líneas entre ítems */
+.submenu li:not(:last-child) {
+    border-bottom: 1px solid #0B6834;
+}
+
+/* ====== FLECHITA TIPO TRIÁNGULO ====== */
+.submenu::before {
+    content: "";
+    position: absolute;
+    top: -11px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 0;
+    height: 0;
+
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 12px solid #0B6834; /* color del borde */
+}
+
+/* Triángulo interior (para que tenga borde como en tu foto) */
+.submenu::after {
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 0;
+    height: 0;
+
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-bottom: 10px solid rgba(255, 255, 255, 0.5); /* color fondo del submenu */
+}
+
+.dropdown:hover > .submenu {
+    display: flex;
+}
+
+/* ---------- HERO ---------- */
+.hero {
+    margin-top: 40px;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.hero h1 {
+    font-size: 50px;
+    color: #0B6834;
+}
+
+.hero p {
+    font-size: 18px;
+    color: #1b5b3a;
+    margin-top: 10px;
+}
+
+
+/* ---------- BUSCADOR ---------- */
+.busqueda-container {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#buscar {
+    width: 60%;
+    padding: 15px;
+    font-size: 18px;
+    border-radius: 12px;
+    border: 2px solid #0B6834;
+    outline: none;
+    transition: .3s;
+}
+
+#buscar:focus {
+    box-shadow: 0 5px 20px rgba(0, 100, 70, .25);
+}
+
+/* ---------- FILTROS ---------- */
+.filtros {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.filtros button {
+    padding: 10px 25px;
+    border: 2px solid #0B6834;
+    background: white;
+    color: #0B6834;
+    border-radius: 25px;
+    margin: 0 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: .3s;
+}
+
+.filtros button.active,
+.filtros button:hover {
+    background: #0B6834;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* ---------- GRID ---------- */
+.grid-productos {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    gap: 35px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    padding-bottom: 80px;
+}
+
+/* ---------- TARJETAS DE PRODUCTO ---------- */
+.producto-card {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(15px);
+    border-radius: 18px;
+    padding-bottom: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+    transition: .35s ease;
+}
+
+.producto-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.20);
+}
+
+.producto-card img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    border-bottom: 1px solid #d9e8df;
+    transition: .4s;
+}
+
+.producto-card:hover img {
+    transform: scale(1.06);
+}
+
+.producto-info {
+    padding: 20px;
+}
+
+.producto-info h3 {
+    font-size: 20px;
+    margin: 0;
+    color: #0B6834;
+}
+
+.producto-info p {
+    color: #2a6a4c;
+    margin: 8px 0 15px;
+}
+
+/* BOTÓN */
+.btn-ver {
+    display: inline-block;
+    background: linear-gradient(135deg, #0B6834, #0d7e42);
+    padding: 10px 20px;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 4px 20px rgba(0, 100, 70, .30);
+    transition: .3s;
+}
+
+.btn-ver:hover {
+    transform: scale(1.05);
+}
+
+.footer{
+    background-color: #1b5b3a;
+    color: #ffffff;
+}
+.conte-footer p {
+    margin-left: 17%;
+}
+.conte-footer{
+padding: 20px;
+font-size: 13px;
+font-weight: bold;
+}
+
+.contenedor-boton img{
+    width: 30px;
+    height: 30px;
+
+}
+
+.contenedor-boton{
+    margin-left: 18%;
+    display: flex;
+    gap: 15px;
+}
+
+.contenedor-boton a {
+    text-decoration: none;
+}
+
+.boton-imagen {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 30px 10px;
+    color: #ffffff;
+    transition: transform 0.3s ease
+}
+
+.boton-imagen:hover {
+
+    transform: scale(1.2);
+}
+.catalogo {
+    flex: 1;
+}
+
+/* ===============================
+   📱 AJUSTES PARA CELULAR
+   =============================== */
+@media (max-width: 768px) {
+
+    /* ----- HEADER ----- */
+    .conteiner {
+        flex-direction: column;
+        margin-left: 0;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .logo {
+        width: 200px;
+        height: auto;
+        margin: 0;
+    }
+
+    /* ----- MENU ----- */
+    .menu {
+        flex-direction: column;
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .menu a {
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    .submenu {
+        position: static;
+        width: 100%;
+        border: none;
+        box-shadow: none;
+    }
+
+    .submenu::before,
+    .submenu::after {
+        display: none;
+    }
+
+    /* ----- HERO ----- */
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .hero p {
+        font-size: 15px;
+    }
+
+    /* ----- BUSCADOR ----- */
+    #buscar {
+        width: 90%;
+        font-size: 16px;
+    }
+
+    /* ----- FILTROS ----- */
+    .filtros {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .filtros button {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+
+    /* ----- GRID PRODUCTOS ----- */
+    .grid-productos {
+        grid-template-columns: 1fr;
+        padding: 0 15px 60px;
+    }
+
+    .producto-card img {
+        height: 200px;
+        object-fit: contain;
+        background: #fff;
+    }
+
+    /* ----- FOOTER ----- */
+    .contenedor-boton {
+        margin-left: 0;
+        justify-content: center;
+    }
+
+    .conte-footer p {
+        margin-left: 0;
+        text-align: center;
+    }
+}

@@ -1,0 +1,515 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: 'Poppins', system-ui, Arial, sans-serif;
+    color: #00b69e;
+    background-color: white;
+    min-height: 100vh;
+    background-repeat: no-repeat; /*img no se repita*/
+    background-size:cover; /*ajustar tamaño de la imagen cover-contain*/
+    background-position: center; /*ajustar la posicion de la img*/
+    background-attachment: fixed;/*img se quede fija mientras se desplaza la pagina*/
+}
+
+header {
+    color: rgba(255, 255, 255, 0.5);
+    box-shadow: 2px 2px 20px #123D5A;
+    padding: 2px 0px;
+}
+
+
+.conteiner {
+    display: flex;
+    justify-content: space-between; /* logo a la izquierda y menú a la derecha */
+    align-items:center;            /* centra verticalmente */
+    padding: 5px 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+    margin-left: 100px;
+    
+}
+
+.logo{
+    width: 300px;
+    height: 90px;
+    margin-left: 6%;
+}
+.menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    display: flex;
+    margin-left: -20%;
+    
+}
+
+.menu li {
+    position:relative;
+    
+}
+
+.menu a{
+    display: block;
+    padding: 10px 25px;
+    text-decoration: none;
+    color: #0B6834;
+    text-align: center;
+    font-weight: 1000;
+    
+}
+
+/* SUBRAYADO */
+.menu a::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background-color: #0B6834;
+    transition: width 0.3s ease;
+}
+
+.menu a:hover::before {
+    width: 100%;
+}
+
+
+.menu li.menu_flecha > a::after {
+    content: "▾";
+    margin-left: 6px;
+    font-size: 12px;
+    color: #0B6834;
+    position: relative;
+    top: -2px; /* ajusta si quieres */
+}
+
+/* ====== SUBMENU ====== */
+.submenu {
+    position: absolute;
+    top: 115%;
+    left: -40px;
+
+    background: #faf6f4;
+    border: 2px solid #0B6834;
+    padding: 15px 25px;
+    display: none;
+    flex-direction: column;
+    width: 230px;
+    z-index: 20;
+
+
+}
+
+/* Mostrar submenu al pasar mouse */
+.dropdown:hover > .submenu {
+    display: flex;
+}
+
+/* Ítems del submenu */
+.submenu li {
+    list-style: none;
+    padding: 12px 0;
+    text-align: center;
+}
+
+.submenu li a {
+    text-decoration: none;
+    color: #0B6834;
+    font-weight: 600;
+}
+
+/* Líneas entre ítems */
+.submenu li:not(:last-child) {
+    border-bottom: 1px solid #0B6834;
+}
+
+/* ====== FLECHITA TIPO TRIÁNGULO ====== */
+.submenu::before {
+    content: "";
+    position: absolute;
+    top: -11px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 0;
+    height: 0;
+
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 12px solid #0B6834; /* color del borde */
+}
+
+/* Triángulo interior (para que tenga borde como en tu foto) */
+.submenu::after {
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 0;
+    height: 0;
+
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-bottom: 10px solid rgba(255, 255, 255, 0.5); /* color fondo del submenu */
+}
+
+.dropdown:hover > .submenu {
+    display: flex;
+}
+
+
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    height: 550px;
+    margin: 100px auto;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,.25);
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.6s ease;
+}
+
+.slide {
+    min-width: 100%;
+    height: 100%;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* 🔥 evita cortes */
+}
+
+
+/* Botones */
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 35px;
+    background: rgba(0,0,0,0.45);
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 5;
+    transition: 0.3s;
+}
+.arrow:hover {
+    background: rgba(0,0,0,0.75);
+}
+
+.prev { left: 15px; }
+.next { right: 15px; }
+
+/* Dots */
+.dots {
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+    text-align: center;
+}
+.dots div {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 6px;
+    background: #fff;
+    border-radius: 50%;
+    opacity: .5;
+    cursor: pointer;
+}
+.dots .active {
+    opacity: 1;
+    background: #0B6834;
+}
+
+.btn_verproductos{
+    margin-top: -200px;
+    margin-left: 42%;
+    width: 150px;
+    background-color: #0B6834;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn_verproductos:hover {
+    background-color: #1c796c;
+}
+
+.animate {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.7s ease-out;
+}
+
+/* Cuando se activa (elemento entra en pantalla) */
+.animate.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.bienvenida-section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #c8fff0;
+}
+
+.bienvenida-container {
+    position: relative;
+    width: 80%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Texto principal */
+.bienvenida-text {
+    font-size: 50px;
+    font-weight: 700;
+    color: #0B6834;
+    transition: transform .6s ease, opacity .6s ease;
+    cursor: pointer;
+    position: absolute;
+}
+
+/* Cuadro que aparece */
+.bienvenida-info {
+    width: 420px;
+    padding: 25px;
+    border-radius: 15px;
+    background: white;
+    color: #0B6834;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    opacity: 0;
+    transform: translateX(80px);
+    transition: opacity .6s ease, transform .6s ease;
+    position: absolute;
+}
+
+/* --- EFECTO HOVER --- */
+.bienvenida-container:hover .bienvenida-text {
+    transform: translateX(-200px);
+    opacity: 0;
+}
+
+.bienvenida-container:hover .bienvenida-info {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.ACERCA {
+    margin-left: 3%;
+}
+
+.ACERCA1{
+    margin-left: 5%;
+}
+
+.abajo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 500px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.copyright {
+  margin: 0;
+  color: #0B6834;
+  margin-top: 20px;
+  margin-left: 30px;
+}
+
+.contenedor-boton {
+  display: flex;
+  gap: 20px;
+}
+
+.boton-imagen {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  background-color: rgba(255, 255, 255, 0.10);
+  color: #0B6834;
+  text-decoration: none;
+  border-radius: 8px;
+  font-family: 'Poppins', system-ui, Arial, sans-serif;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  margin-left: 50px;
+}
+
+.boton-imagen img {
+  width: 30px;
+  height: 30px;
+}
+
+.boton-imagen:hover {
+  background-color: #0B6834;
+  color: white;
+}
+
+section {
+    min-height: 100vh;
+}
+
+/* ========================= */
+/* 📱 RESPONSIVE PARA CELULAR */
+/* ========================= */
+@media (max-width: 768px) {
+
+  /* --- HEADER --- */
+  .conteiner {
+    flex-direction: column;
+    margin-left: 0;
+    padding: 10px;
+  }
+
+  .logo {
+    width: 200px;
+    height: auto;
+    margin: 0;
+  }
+
+  .menu {
+    flex-direction: column;
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .menu a {
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  .submenu {
+    position: static;
+    width: 100%;
+    border: none;
+  }
+
+  /* --- BIENVENIDA --- */
+  .bienvenida-text {
+    font-size: 28px;
+    text-align: center;
+  }
+
+  .bienvenida-container:hover .bienvenida-text {
+    transform: none;
+    opacity: 1;
+  }
+
+  .bienvenida-info {
+    width: 90%;
+    transform: translateY(30px);
+  }
+
+  .bienvenida-container:hover .bienvenida-info {
+    transform: translateY(0);
+  }
+
+  /* --- CARRUSEL --- */
+  .arrow {
+    font-size: 25px;
+    padding: 8px;
+  }
+  
+    .carousel {
+        width: 95%;
+        height: 300px;
+        margin: 40px auto;
+        border-radius: 15px;
+    }
+
+    .arrow {
+        font-size: 26px;
+        padding: 6px 10px;
+    }
+
+    .dots div {
+        width: 10px;
+        height: 10px;
+    }
+
+  /* --- BOTÓN VER PRODUCTOS --- */
+  .btn_verproductos {
+    margin: 20px auto;
+    display: block;
+    width: 80%;
+    text-align: center;
+  }
+
+  /* --- SECCIÓN MAPA Y CONTACTO --- */
+  section:last-of-type {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  iframe {
+    width: 100%;
+    height: 250px;
+  }
+
+  .ACERCA,
+  .ACERCA1 {
+    margin: 10px 0;
+    width: 100%;
+  }
+
+  /* --- BOTONES SOCIALES --- */
+  .contenedor-boton {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .boton-imagen {
+    margin-left: 0;
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* --- COPYRIGHT --- */
+  .abajo {
+    width: 100%;
+    text-align: center;
+  }
+
+  .copyright {
+    margin-left: 0;
+  }
+}
+

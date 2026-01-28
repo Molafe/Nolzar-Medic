@@ -1,0 +1,344 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: 'Poppins', system-ui, Arial, sans-serif;
+    background-color: white;
+    min-height: 100vh;
+    background-repeat: no-repeat; /*img no se repita*/
+    background-size:cover; /*ajustar tamaño de la imagen cover-contain*/
+    background-position: center; /*ajustar la posicion de la img*/
+    background-attachment: fixed;/*img se quede fija mientras se desplaza la pagina*/
+}
+
+header {
+    color: rgba(255, 255, 255, 0.5);
+    box-shadow: 2px 2px 20px #123D5A;
+    padding: 2px 0px;
+}
+
+
+.conteiner {
+    display: flex;
+    justify-content: space-between; /* logo a la izquierda y menú a la derecha */
+    align-items:center;            /* centra verticalmente */
+    padding: 5px 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+    margin-left: 100px;
+    
+}
+
+.logo{
+    width: 300px;
+    height: 90px;
+    margin-left: 6%;
+}
+.menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    display: flex;
+    margin-left: -20%;
+    
+}
+
+.menu li {
+    position:relative;
+    
+}
+
+.menu a{
+    display: block;
+    padding: 10px 25px;
+    text-decoration: none;
+    color: #0B6834;
+    text-align: center;
+    font-weight: 1000;
+    
+}
+
+/* SUBRAYADO */
+.menu a::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background-color: #0B6834;
+    transition: width 0.3s ease;
+}
+
+.menu a:hover::before {
+    width: 100%;
+}
+
+
+.menu li.menu_flecha > a::after {
+    content: "▾";
+    margin-left: 6px;
+    font-size: 12px;
+    color: #0B6834;
+    position: relative;
+    top: -2px; /* ajusta si quieres */
+}
+
+/* ====== SUBMENU ====== */
+.submenu {
+    position: absolute;
+    top: 115%;
+    left: -40px;
+
+    background: #faf6f4;
+    border: 2px solid #0B6834;
+    padding: 15px 25px;
+    display: none;
+    flex-direction: column;
+    width: 230px;
+    z-index: 20;
+
+
+}
+
+/* Mostrar submenu al pasar mouse */
+.dropdown:hover > .submenu {
+    display: flex;
+}
+
+/* Ítems del submenu */
+.submenu li {
+    list-style: none;
+    padding: 12px 0;
+    text-align: center;
+}
+
+.submenu li a {
+    text-decoration: none;
+    color: #0B6834;
+    font-weight: 600;
+}
+
+/* Líneas entre ítems */
+.submenu li:not(:last-child) {
+    border-bottom: 1px solid #0B6834;
+}
+
+/* ====== FLECHITA TIPO TRIÁNGULO ====== */
+.submenu::before {
+    content: "";
+    position: absolute;
+    top: -11px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 0;
+    height: 0;
+
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 12px solid #0B6834; /* color del borde */
+}
+
+/* Triángulo interior (para que tenga borde como en tu foto) */
+.submenu::after {
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 0;
+    height: 0;
+
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-bottom: 10px solid rgba(255, 255, 255, 0.5); /* color fondo del submenu */
+}
+
+.dropdown:hover > .submenu {
+    display: flex;
+}
+
+.bienvenida-text {
+    font-size: 50px;
+    font-weight: 700;
+    color: #0B6834;
+    transition: transform .6s ease, opacity .6s ease;
+    cursor: pointer;
+    position: absolute;
+    margin-left: -200px;
+    margin-top: -100px;
+}
+
+.bienvenida-info {
+    width: 420px;
+    padding: 25px;
+    border-radius: 15px;
+    background: white;
+    color: #0B6834;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    opacity: 0;
+    transform: translateY(80px); /* ⬇ empieza abajo */
+    transition: opacity .6s ease, transform .6s ease;
+    position: absolute;
+    margin-left: -160px;
+    margin-top: -100px;
+}
+
+.bienvenida-container:hover .bienvenida-text {
+    transform: translateY(-60px); /* sube el título */
+    opacity: 0;
+}
+
+.bienvenida-container:hover .bienvenida-info {
+    opacity: 1;
+    transform: translateY(0); /* sube desde abajo */
+}
+
+
+
+
+/*footer*/
+.footer{
+    background-color: #1b5b3a;
+    color: #ffffff;
+}
+.conte-footer p {
+    margin-left: 17%;
+}
+.conte-footer{
+padding: 20px;
+font-size: 13px;
+font-weight: bold;
+}
+
+.contenedor-boton img{
+    width: 30px;
+    height: 30px;
+
+}
+
+.contenedor-boton{
+    margin-left: 18%;
+    display: flex;
+    gap: 15px;
+}
+
+.contenedor-boton a {
+    text-decoration: none;
+}
+
+.boton-imagen {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 30px 10px;
+    color: #ffffff;
+    transition: transform 0.3s ease
+}
+
+.boton-imagen:hover {
+
+    transform: scale(1.2);
+}
+.catalogo {
+    flex: 1;
+}
+
+/* ===============================
+   📱 AJUSTES PARA CELULAR
+   =============================== */
+@media (max-width: 768px) {
+
+    /* ----- HEADER ----- */
+    .conteiner {
+        flex-direction: column;
+        margin-left: 0;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .logo {
+        width: 200px;
+        height: auto;
+        margin: 0;
+    }
+
+    .menu {
+        flex-direction: column;
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .menu a {
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    .submenu {
+        position: static;
+        width: 100%;
+        border: none;
+    }
+
+    .submenu::before,
+    .submenu::after {
+        display: none;
+    }
+
+    /* ----- SECCIÓN BIENVENIDA ----- */
+    .bienvenida-section {
+        padding: 40px 15px;
+        height: auto !important;
+    }
+
+    .bienvenida-container {
+        position: static;
+        text-align: center;
+    }
+
+    .bienvenida-text {
+        position: static;
+        margin: 0 0 20px 0;
+        font-size: 30px;
+        opacity: 1;
+        transform: none;
+    }
+
+    .bienvenida-info {
+        position: static;
+        width: 100%;
+        max-width: 380px;
+        margin: auto;
+        opacity: 1;
+        transform: none;
+    }
+
+    /* ❌ QUITAMOS HOVER EN CELULAR */
+    .bienvenida-container:hover .bienvenida-text,
+    .bienvenida-container:hover .bienvenida-info {
+        transform: none;
+        opacity: 1;
+    }
+
+    /* ----- FOOTER ----- */
+    .contenedor-boton {
+        margin-left: 0;
+        justify-content: center;
+    }
+
+    .conte-footer p {
+        margin-left: 0;
+        text-align: center;
+    }
+}
