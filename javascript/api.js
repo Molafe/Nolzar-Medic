@@ -47,7 +47,7 @@ const productos = [
         categoria: "reforce",
         img: "/imagenes/bellfar.jpg",
         descripcion: "Vitamina C Bellfar.",
-        link: "/producto1.html"
+        link: "/index4.html"
     },
     {
         nombre: "VITAMINA C - Pascoe",
@@ -175,4 +175,5 @@ window.addEventListener("load", () => {
 });
 
 window.addEventListener("resize", ajustarAltura);
+
 
