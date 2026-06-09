@@ -3,100 +3,100 @@ const productos = [
     {
         nombre: "Reddyz 4 en 1",
         categoria: "Reddyz",
-        img: "/imagenes/WhatsApp Image 2025-12-04 at 10.28.37 AM.jpeg",
+        img: "imagenes/WhatsApp Image 2025-12-04 at 10.28.37 AM.jpeg",
         descripcion: "Guantes de alta resistencia y calidad hospitalaria.",
         link: "producto3.html"
     },
     {
         nombre: "Premier α (NIPRO)",
         categoria: "medidor",
-        img: "/imagenes/medidor_primer.jpeg",
+        img: "imagenes/medidor_primer.jpeg",
         descripcion: "Medidor de glucosa Premier y (cajas de 50 tiras)",
-        link: "/producto4.html"
+        link: "producto4.html"
     },
     {
         nombre: "Accu-Chek Instant (Roche)",
         categoria: "medidor",
-        img: "/imagenes/medidor_accu-chek.jpeg",
+        img: "imagenes/medidor_accu-chek.jpeg",
         descripcion: "Medidor Accu-Chek Instant y (cajas de 50 tiras)",
-        link: "/producto5.html"
+        link: "producto5.html"
     },
     {
         nombre: "Aesthetic Solution / L-Carnitine",
         categoria: "Aesthetic Solution / L-Carnitine",
         img: "/imagenes/WhatsApp Image 2025-12-04 at 10.31.07 AM.jpeg",
         descripcion: "Ampollas de solución estética reductora.",
-        link: "/producto6.html"
+        link: "producto6.html"
     },
     {
         nombre: "Tensiómetro electrónico de brazo",
         categoria: "Tensiómetro electrónico de brazo",
-        img: "/imagenes/tensiómetro.jpeg",
+        img: "imagenes/tensiómetro.jpeg",
         descripcion: "Equipo óptico de precisión avanzada.",
-        link: "/producto7.html"
+        link: "producto7.html"
     },
     {
         nombre: "VITAMINA C 7.5G/50ML – REFORCE",
         categoria: "reforce",
-        img: "/imagenes/reforce.webp",
+        img: "imagenes/reforce.webp",
         descripcion: "Vitamina C inyectable.",
-        link: "/producto8.html"
+        link: "producto8.html"
     },
     {
         nombre: "VITAMINA C - Bellfar",
         categoria: "reforce",
-        img: "/imagenes/bellfar.jpg",
+        img: "imagenes/bellfar.jpg",
         descripcion: "Vitamina C Bellfar.",
-        link: "/index4.html"
+        link: "index4.html"
     },
     {
         nombre: "VITAMINA C - Pascoe",
         categoria: "reforce",
-        img: "/imagenes/vitaminac_pascoe.jpg",
+        img: "imagenes/vitaminac_pascoe.jpg",
         descripcion: "Vitamina C Pascoe.",
-        link: "/producto9.html"
+        link: "producto9.html"
     },
     {
         nombre: "VITAMINA B12 - Pascoe",
         categoria: "reforce",
-        img: "/imagenes/VITAMINA-B12.jpg",
+        img: "imagenes/VITAMINA-B12.jpg",
         descripcion: "Vitamina B12 Pascoe.",
-        link: "/producto10.html"
+        link: "producto10.html"
     },
     {
         nombre: "Pasconal Forte - Pascoe",
         categoria: "reforce",
-        img: "/imagenes/PASCONAL.jpg",
+        img: "imagenes/PASCONAL.jpg",
         descripcion: "Pasconal Forte.",
-        link: "/producto11.html"
+        link: "producto11.html"
     },
     {
         nombre: "Cholo 2 - Pascoe",
         categoria: "reforce",
-        img: "/imagenes/Cholo-2.jpg",
+        img: "imagenes/Cholo-2.jpg",
         descripcion: "Cholo 2 Pascoe.",
-        link: "/producto2.html"
+        link: "producto2.html"
     },
     {
         nombre: "Lymphdiaral 2ml - Pascoe",
         categoria: "reforce",
-        img: "/imagenes/Lymphdiaral.jpg",
+        img: "imagenes/Lymphdiaral.jpg",
         descripcion: "Lymphdiaral Pascoe.",
-        link: "/producto12.html"
+        link: "producto12.html"
     },
     {
         nombre: "Mission Urinalysis",
         categoria: "reforce",
-        img: "/imagenes/mission-urinalysis.jpg",
+        img: "imagenes/mission-urinalysis.jpg",
         descripcion: "Análisis de orina Mission.",
-        link: "/producto13.html"
+        link: "producto13.html"
     },
     {
         nombre: "Medi-Test Combi 11",
         categoria: "reforce",
-        img: "/imagenes/medi_test.webp",
+        img: "imagenes/medi_test.webp",
         descripcion: "Tiras reactivas Medi-Test.",
-        link: "/producto14.html"
+        link: "producto14.html"
     }
 ];
 
